@@ -1,0 +1,32 @@
+
+Twitter dom structure
+
+
+//profilbild src
+
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[1].src
+
+
+//left adn side from tweet text
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[0]
+
+
+//name or nickname
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1]
+
+//nickname
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].innerText
+
+
+
+//tweet as text
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].innertext
+
+// tweet content split in # and text
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[1].children[1].children[0].children[0].children[12]
+
+
+
+//amount answers / amount retweets / amount likes
+
+document.getElementsByTagName("article")[2].childNodes[0].children[0].children[0].children[1].children[1].children[1].children[2].children[1].innerText
