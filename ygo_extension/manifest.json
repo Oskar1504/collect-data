@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+
+	"name": "Grab Yu Gi Oh card data",
+	"description": "An extension which search yu gi oh cards by is passccode and store data into an array",
+	"version": "1.0",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["main.js"]
+		}
+	],
+
+	"permissions": ["tabs","downloads"],
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "Grab YGO data"
+	}
+}
