@@ -1,3 +1,3 @@
-# collect-data
-collect data from websites and store the information in your own sql database
+# collect data
 
+different small opera extensions to grab some data about yu gi oh cards
