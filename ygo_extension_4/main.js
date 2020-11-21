@@ -43,8 +43,9 @@ window.onload = function() {
 			}else{
 				reset();
 				chrome.runtime.sendMessage({betreff:"end"});
+				alert("Searched all cards. Check download folder.")
 			}
-		},1000);
+		},500);
 	}
 		  
 	};
@@ -62,8 +63,14 @@ function search_cards(cardids,index){
 }
 
 function get_card_preis(arr,index){
+	//get first price contianer 
 	let price = sanitize(document.getElementsByClassName("price-container")[0].innerText);
-	let card = [arr[index],price]
+	//remove specified name on cardmarkt
+	document.getElementsByTagName("h1")[0].children[0].remove();
+	//get actual name
+	let name = document.getElementsByTagName("h1")[0].innerText;
+	//store selected values
+	let card = [name,arr[index],price]
 	chrome.runtime.sendMessage({betreff:"store_price",price:card});
 }
 
