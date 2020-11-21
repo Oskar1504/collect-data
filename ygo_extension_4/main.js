@@ -15,9 +15,9 @@ chrome.runtime.onMessage.addListener(
 
 
 		if(request.betreff == "send_nummern"){
-			console.log(request.data);
+			//console.log(request.data);
 			nummern = request.data;
-			console.log(nummern);
+			//console.log(nummern);
 			
 		}
 
@@ -46,8 +46,7 @@ window.onload = function() {
 				alert("Searched all cards. Check download folder.")
 			}
 		},500);
-	}
-		  
+	} 
 	};
 
 function search_cards(cardids,index){
@@ -68,7 +67,7 @@ function get_card_preis(arr,index){
 	//remove specified name on cardmarkt
 	document.getElementsByTagName("h1")[0].children[0].remove();
 	//get actual name
-	let name = document.getElementsByTagName("h1")[0].innerText;
+	let name = sanitize(document.getElementsByTagName("h1")[0].innerText);
 	//store selected values
 	let card = [name,arr[index],price]
 	chrome.runtime.sendMessage({betreff:"store_price",price:card});
@@ -76,7 +75,6 @@ function get_card_preis(arr,index){
 
 
 function sanitize(text){
-	text = text.replace(/●/g,"-");
 	return text.replace(/,/g,".");
 }
 
@@ -87,4 +85,3 @@ function reset(){
 	console.log(localStorage.getItem('index'))
 	console.log(localStorage.getItem('test'))
 }
-

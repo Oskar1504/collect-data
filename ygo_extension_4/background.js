@@ -47,6 +47,8 @@ chrome.runtime.onMessage.addListener(
 				console.log("------RESET---VALUES--WHICH--ENABLE--SEARCH------");
 			  	chrome.tabs.sendMessage(tab[0].id,{betreff:'reset'});
 			});
+			let URL = "http://projectlifetime.de/yugioh/search_preise.php";
+			chrome.tabs.update(tab.id, {url: Url});
 		}
 
 		if(request.betreff == "reset"){
