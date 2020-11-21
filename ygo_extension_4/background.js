@@ -46,9 +46,10 @@ chrome.runtime.onMessage.addListener(
 			chrome.tabs.query({currentWindow: true, active: true}, function (tab) {
 				console.log("------RESET---VALUES--WHICH--ENABLE--SEARCH------");
 			  	chrome.tabs.sendMessage(tab[0].id,{betreff:'reset'});
+			  	//leitet eine zum anschuan weiter
+				let URL = "http://projectlifetime.de/yugioh/search_preise.php";
+				chrome.tabs.update(tab.id, {url: Url});
 			});
-			let URL = "http://projectlifetime.de/yugioh/search_preise.php";
-			chrome.tabs.update(tab.id, {url: Url});
 		}
 
 		if(request.betreff == "reset"){
@@ -68,7 +69,7 @@ function download(array){
 		var file = new Blob([ array.join('\n') ], { type: 'text/plain' });
 
 		a.href = URL.createObjectURL(file);
-		a.download = 'ygo_preise_'+getTime()+'.csv';
+		a.download = 'ygo_preise_'+getTime()+'.txt';
 		a.click();
 
 		end_data = [];
